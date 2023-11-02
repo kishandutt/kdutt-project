@@ -41,6 +41,7 @@ html {
         text-wrap: nowrap;
         cursor: pointer;
         text-decoration: none;
+
     }
     .button-primary:hover {
         background-color: #fd92b2;
@@ -271,12 +272,13 @@ html {
         list-style: none;
         display: flex;
         justify-content: space-between;  
-        transition: 200ms ease-in;
-
+        transition: 300ms ease;
       }
+      /* I DONT THINK THIS DOES ANYTHING
       summary::-webkit-details-marker {
         display: none;
       }
+      */
       summary:after{
         content: "\002B";
       }
@@ -298,30 +300,36 @@ html {
 
 
       /* CAROUSEL START */
+
       .slideshow-container {
         width: 100%;
         position: relative;
         display: flex;
+        flex-direction: column;
         align-items: center;
+      }
+      .next-container {
+        position: absolute;
+        top: 50%;
+        margin-top: -22px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
       }
       .prev, .next {
         cursor: pointer;
         position: absolute;
-        top: 50%;
-        width: auto;
         padding: 1rem;
-        margin-top: -22px;
         color: white;
-        font-weight: bold;
-        font-size: 18px;
         transition: 0.3s ease;
-        border-radius: 0 3px 3px 0;
+        border-radius: 0 .25rem .25rem 0;
         user-select: none;
         background-color: rgba(0,0,0,0.8);
       }
       .next {
         right: 0;
-        border-radius: 3px 0 0 3px;
+        border-radius: .25rem 0 0 .25rem;
       }
       .prev:hover, .next:hover {
         background-color: #FFA1BD;
@@ -337,7 +345,9 @@ html {
       .slideshow-image {
           width: 100%;
           object-fit: cover;
+          border-radius: .5rem;
       }
+    
       .dot {
         cursor: pointer;
         height: 1rem;
@@ -373,6 +383,104 @@ html {
         to {opacity: 1}
       }
       /* CAROUSEL END */
+
+
+
+
+
+
+
+
+      /* GALLERY START */
+
+      .gallery-container {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: .5em;
+      }
+
+      .gallery-container img {
+        width: 20%;
+        min-width: 200px;
+        object-fit: cover;
+        cursor: pointer;
+      }
+      .gallery-container img:hover {
+        opacity: 90%;
+      }
+
+
+
+
+
+  /* The Modal (background) */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 4rem;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: black;
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    width: 90%;
+    max-width: 1200px;
+  }
+  
+  /* The Close Button */
+  .close {
+    color: white;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 35px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #FFA1BD;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  /* Hide the slides by default */
+  .mySlides {
+    display: none;
+  }
+  
+  img.demo {
+    opacity: 0.6;
+  }
+  
+  .active,
+  .demo:hover {
+    opacity: 1;
+  }
+  
+  img.hover-shadow {
+    transition: 0.3s;
+  }
+  
+  .hover-shadow:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+      /* GALLERY END */
+
+
 
 
 

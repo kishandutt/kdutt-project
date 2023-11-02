@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+
+    <link rel="stylesheet" href="./assets/stylesheets/styles.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@200;400;600;700&family=Righteous&display=swap" rel="stylesheet">
+    
+    <style>
+        
+    </style>
+
+
+
+</head>
+<body>
+    <nav class="nav-main" id="nav">
+        <a class="logo-container" href="./index.html">
+            <img class="logo" src="./assets/images/Fizzle.png">
+        </a>        
+        <div class="horizontal-nav">
+            <a class="button-secondary" href="./about.html">About Us</a>
+            <a class="button-secondary" href="./about.html#faq">FAQ</a>
+            <a class="button-secondary" href="./friends.html">Our Friends</a> 
+            <a class="button-secondary" href="#">Gallery</a>
+            <a class="button-primary" href="./trending.html">New Articles!</a>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn"><svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></button>
+            <div class="dropdown-content">
+                <a class="button-secondary" href="./about.html">About Us</a>
+                <a class="button-secondary" href="./about.html#faq">FAQ</a>
+                <a class="button-secondary" href="./friends.html">Our Friends</a> 
+                <a class="button-secondary" href="#">Gallery</a>
+                <a class="button-primary" href="./trending.html">New Articles!</a>
+            </div>
+        </div>
+    </nav>
+    
+    <section class="article-body">
+        <div class="article-text">
+            <h1 style="text-align: center;">Gallery</h1>
+            <div class="gallery-container">
+                <img src="./assets/images/band.jpg" onclick="openModal();currentSlide(1)">
+                <img src="./assets/images/team.jpg" onclick="openModal();currentSlide(2)">
+                <img src="./assets/images/casettes.jpg" onclick="openModal();currentSlide(3)">
+                <img src="./assets/images/wilco.jpg" onclick="openModal();currentSlide(4)">
+                <img src="./assets/images/band.jpg" onclick="openModal();currentSlide(5)">
+                <img src="./assets/images/gooselounge.jpg" onclick="openModal();currentSlide(6)">
+                <img src="./assets/images/records.jpg" onclick="openModal();currentSlide(7)">
+                <img src="./assets/images/headphones.jpg" onclick="openModal();currentSlide(8)">
+            </div>
+            <div id="myModal" class="modal">
+                <span class="close cursor" onclick="closeModal()">&times;</span>
+                <div class="modal-content">
+              
+                    <div class="mySlides">
+                        <img src="./assets/images/band.jpg" style="width:100%; object-fit:cover;">
+                    </div>
+              
+                    <div class="mySlides">
+                        <img src="./assets/images/team.jpg" style="width:100%; object-fit:cover;">
+                    </div>
+              
+                    <div class="mySlides">
+                        <img src="./assets/images/casettes.jpg" style="width:100%; object-fit:cover;">
+                    </div>
+              
+                    <div class="mySlides">
+                        <img src="./assets/images/wilco.jpg" style="width:100%; object-fit:cover;">
+                    </div>
+                    <div class="mySlides">
+                        <img src="./assets/images/band.jpg" style="width:100%; object-fit:cover;">
+                    </div>
+              
+                    <div class="mySlides">
+                        <img src="./assets/images/gooselounge.jpg" style="width:100%; object-fit:cover;">
+                    </div>
+              
+                    <div class="mySlides">
+                        <img src="./assets/images/records.jpg" style="width:100%; object-fit:cover;">
+                    </div>
+              
+                    <div class="mySlides">
+                        <img src="./assets/images/headphones.jpg" style="width:100%; object-fit:cover;">
+                    </div>
+
+                    <div class="next-container">
+                        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                    </div>
+              
+                </div>
+            </div>
+        </div>
+    </section>            
+      
+    <script>
+// Open the Modal
+function openModal() {
+  document.getElementById("myModal").style.display = "block";
+}
+
+// Close the Modal
+function closeModal() {
+  document.getElementById("myModal").style.display = "none";
+}
+
+var slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  var captionText = document.getElementById("caption");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  captionText.innerHTML = dots[slideIndex-1].alt;
+}
+</script>
+
+</body>
+</html>

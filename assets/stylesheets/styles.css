@@ -299,6 +299,10 @@ html {
 
 
 
+
+
+
+
       /* CAROUSEL START */
 
       .slideshow-container {
@@ -413,9 +417,6 @@ html {
       }
 
 
-
-
-
   /* The Modal (background) */
   .modal {
     display: none;
@@ -478,9 +479,57 @@ html {
   .hover-shadow:hover {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
-      /* GALLERY END */
+
+  /* GALLERY END */
 
 
+
+
+
+
+
+
+/* TABLE START */
+
+
+  th {
+    background-color: #FFA1BD;
+    cursor: pointer;
+  }
+  th:hover {
+    opacity: 75%;
+  }
+  th, td {
+    padding: 1em;
+  }
+
+  tr:nth-child(odd) {
+    background-color: #fffbf0;
+  }
+  table a {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  table a:hover {
+    opacity: 60%;
+  }
+
+
+/* TABLE END */
+
+
+
+
+
+/* TRENDING START */
+
+.scroll-text {
+  padding: 1em;
+  height: 200px;
+  overflow: scroll;
+}
+
+/* TRENDING END */
 
 
 
@@ -528,7 +577,10 @@ html {
             max-width: 80vw;
         }
        
-
+        /* FOR TABLE */
+        th, td {
+          padding: .5em;
+        }
 
 
         /* media query 4 article */

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Friends</title>
+
+    <link rel="stylesheet" href="./assets/stylesheets/styles.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@200;400;600;700&family=Righteous&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+
+    <nav class="nav-main" id="nav">
+        <a class="logo-container" href="./index.html">
+            <img class="logo" src="./assets/images/Fizzle.png">
+        </a>        
+        <div class="horizontal-nav">
+            <a class="button-secondary" href="./about.html">About Us</a>
+            <a class="button-secondary" href="./about.html#faq">FAQ</a>
+            <a class="button-secondary" href="#">Our Friends</a> 
+            <a class="button-secondary" href="./gallery.html">Gallery</a>
+            <a class="button-primary" href="./trending.html">New Articles!</a>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn"><svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></button>
+            <div class="dropdown-content">
+                <a class="button-secondary" href="./about.html">About Us</a>
+                <a class="button-secondary" href="./about.html#faq">FAQ</a>
+                <a class="button-secondary" href="#">Our Friends</a> 
+                <a class="button-secondary" href="./gallery.html">Gallery</a>
+                <a class="button-primary" href="./trending.html">New Articles!</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="article-body">
+        <div class="article-text">
+            <h1 style="text-align: center;">Our Friends</h1>
+            <p style="text-align: center;">People and businesses that we love to work with!</p>
+            <table id="friends-table">
+                <tr>
+                  <th onclick="sortTable(0)">Name</th>
+                  <th onclick="sortTable(1)">Location</th>
+                  <th onclick="sortTable(2)">Field</th>
+                  <th onclick="sortTable(3)">Website</th>
+                </tr>
+                <tr>
+                  <td>Kairi & Sons</td>
+                  <td>Pembrook, NV</td>
+                  <td>Print Services</td>
+                  <td><a>kairiprinting.com</a></td>
+                </tr>
+                <tr>
+                  <td>BRN Studio</td>
+                  <td>Lancaster, CA</td>
+                  <td>Photography / Prints</td>
+                  <td><a>brnphoto.com</a></td>
+                </tr>
+                <tr>
+                    <td>Soto Publishing</td>
+                    <td>Riverside, CA</td>
+                    <td>Publishing</td>
+                    <td><a>sotoca.com</a></td>
+                  </tr>
+                  <tr>
+                    <td>Angie's Baked Goods</td>
+                    <td>Lafayette, CA</td>
+                    <td>Confectionery</td>
+                    <td><a>angiesbakery.com</a></td>
+                  </tr>
+                  <tr>
+                    <td>Wellerby Designs</td>
+                    <td>Ambiville, MA</td>
+                    <td>Graphic Design</td>
+                    <td><a>wellerby.design</a></td>
+                  </tr>
+              </table>
+        </div>
+    </section>
+
+
+
+
+    <script>
+        function sortTable(n) {
+            var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+            table = document.getElementById("friends-table");
+            switching = true;
+            // Set the sorting direction to ascending:
+            dir = "asc";
+            /* Make a loop that will continue until
+            no switching has been done: */
+            while (switching) {
+                // Start by saying: no switching is done:
+                switching = false;
+                rows = table.rows;
+                /* Loop through all table rows (except the
+                first, which contains table headers): */
+                for (i = 1; i < (rows.length - 1); i++) {
+                // Start by saying there should be no switching:
+                shouldSwitch = false;
+                /* Get the two elements you want to compare,
+                one from current row and one from the next: */
+                x = rows[i].getElementsByTagName("TD")[n];
+                y = rows[i + 1].getElementsByTagName("TD")[n];
+                /* Check if the two rows should switch place,
+                based on the direction, asc or desc: */
+                if (dir == "asc") {
+                    if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                    // If so, mark as a switch and break the loop:
+                    shouldSwitch = true;
+                    break;
+                    }
+                } else if (dir == "desc") {
+                    if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                    // If so, mark as a switch and break the loop:
+                    shouldSwitch = true;
+                    break;
+                    }
+                }
+                }
+                if (shouldSwitch) {
+                /* If a switch has been marked, make the switch
+                and mark that a switch has been done: */
+                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                switching = true;
+                // Each time a switch is done, increase this count by 1:
+                switchcount ++;
+                } else {
+                /* If no switching has been done AND the direction is "asc",
+                set the direction to "desc" and run the while loop again. */
+                if (switchcount == 0 && dir == "asc") {
+                    dir = "desc";
+                    switching = true;
+                }
+                }
+            }
+            }
+    </script>
+
+
+<footer style="height: 300px;">
+
+</footer>
+
+</body>
+</html>
